@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  width:100%;
+  height:100%;
+  grid-template-areas:
+    "project"
+    "project"
+    "project"
+    "project"
+    "project";
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(6, 1fr); 
+  box-sizing: border-box;
+}
+.box {
+  background-color: var(--bg-color-one); 
+  padding: 2em;
+}
+
+.spacer {
+  aspect-ratio: 900/600;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1{
+  background-image: url('./assets/layered-waves-haikei.svg')
+}
+.layer2{
+  background-image: url('./assets/layered-waves-haikei-2.svg')
+}
+
+.project { grid-area: project; }
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+}
+.technologies p {
+  display: inline;
+  white-space: nowrap;
+  background-color:	var(--accent-color-two);
+  border-radius: 5px;
+  padding:1px 5px 1px 5px;
+  margin-right:5px;
+}

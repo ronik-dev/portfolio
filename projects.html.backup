@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="base-style.css" rel="stylesheet" />
+    <link href="projects-style.css" rel="stylesheet" />
+    <title>My Portfolio</title>
+</head>
+<body>
+  <div class="header">header</div>
+
+  <div id="main" class="main">
+    <div class="container">
+      <div class="box">
+			  <img alt="Backup for Network Appliance Configurations">
+			  <h3>Backup for Network Appliance Configurations</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>Anslible</p>
+					  <p>Python</p>
+					  <p>YAML</p>
+			  </div>
+	  </div>
+      <div class="box">
+			  <img alt="Meraki Licence and Firmware Notification Automation">
+			  <h3>Meraki Licence and Firmware Notification Automation</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>Azure Automation Accounts</p>
+					  <p>Azure KeyVaults</p>
+					  <p>Azure Storage Accounts</p>
+					  <p>Microsoft Graph API</p>
+					  <p>Powershell</p>
+					  <p>Meraki Dashboard \& API</p>
+			  </div>
+	  </div>
+      <div class="box">
+			  <img alt="Mail Sentiment Analisys">
+			  <h3>Mail Sentiment Analisys</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>Azure Logic App</p>
+					  <p>Azure Language Service</p>
+					  <p>Azure Storage Account</p>
+					  <p>Azure Automation Account</p>
+			  </div>
+	  </div >
+      <div class="box">
+			  <img alt="Copilot Multiagent RAG">
+			  <h3>Copilot Mdivtiagent RAG</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>1</p>
+					  <p>2</p>
+					  <p>3</p>
+					  <p>4</p>
+			  </div>
+	  </div>
+      <div class="box">
+			  <img alt="6th Semester University Project">
+			  <h3>6th Semester University Project</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+			  </div>
+	  </div>
+      <div class="box">
+			  <img alt="Bachelor Thesys">
+			  <h3>Bachelor Thesys</h3>
+			  <p>description</p>
+			  <div class="technologies">
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+					  <p>Who knows</p>
+			  </div>
+	  </div>
+    </div>
+  </div>
+
+  <div class="footer">footer</div>
+</body></html>

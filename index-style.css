@@ -1,0 +1,65 @@
+.container {
+  display: grid;
+  width:100%;
+  height:100%;
+  padding: 1em;
+  gap: 1em;
+  grid-template-areas:
+    "project project timeline timeline"
+    "project project certification myself";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr); 
+  box-sizing: border-box;
+}
+
+@media(max-width: 100em){
+  .container{
+    grid-template-areas:
+      "project project timeline timeline"
+      "project project certification certification"
+      "myself myself myself myself";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr); 
+  }
+}
+
+@media(max-width: 50em){
+  .container{
+    grid-template-areas:
+      "project" 
+      "timeline"
+      "certification"
+      "myself";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr); 
+  }
+}
+
+.box {
+  border: 1px solid var(--bg-color-three);
+  background-color: var(--bg-color-four); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:1em;
+}
+
+.box:hover{
+  background-color: var(--accent-color-one);
+}
+
+.box-title{
+  width:100%;
+  margin-bottom:1em;
+}
+
+.project { grid-area: project; }
+.timeline { grid-area: timeline; }
+.certification { grid-area: certification; }
+.myself { grid-area: myself; }
+
+iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
