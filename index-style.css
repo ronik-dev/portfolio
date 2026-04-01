@@ -45,6 +45,14 @@
   padding:1em;
 }
 
+.box a {
+  display: flex;
+  flex-direction: column;
+  color:white; 
+  text-decoration:none;
+  overflow:hidden;
+}
+
 .box:hover{
   background-color: var(--accent-color-one);
   filter: url(#glitch);
@@ -55,6 +63,10 @@
   margin-bottom:1em;
   display: flex;
   justify-content: space-between;
+}
+
+.box-title span:hover{
+  color: var(--accent-color-two);
 }
 
 .project { grid-area: project; }

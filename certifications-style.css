@@ -1,3 +1,15 @@
+/* When the #main anchor is active (like in your iframe), hide header and footer */
+body:has(#main:target) .header,
+body:has(#main:target) .footer {
+  display: none;
+}
+
+/* Make the body background match the box color */
+body:has(#main:target) {
+  background-color: var(--bg-color-four); 
+}
+
+
 .container {
   background-color: var(--bg-color-four);
   width: 100%;
@@ -28,7 +40,7 @@
   transform-style: preserve-3d; 
 }
 
-.carousel-face img {
+.carousel-face img{
   width: auto;
   height: auto;
   max-width: 100%;

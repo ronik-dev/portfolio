@@ -1,11 +1,25 @@
 :root {
   --bg-color-one: black;
+  --bg-color-opposite: white;
   --bg-color-two: #333333;
   --bg-color-three: #222222;
   --bg-color-four: #111111;
   --accent-color-one: #285577;
   --accent-color-two: #253c4d;
   --text-color-one: white;
+  --text-color-opposite: black;
+}
+
+::selection {
+    background: var(--bg-color-opposite);
+    color: var(--text-color-opposite);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--bg-color-opposite);
+    color: var(--text-color-opposite);
+    text-shadow: none;
 }
 
 body {
