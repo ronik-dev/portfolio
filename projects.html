@@ -1,83 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-		<head>
-				<meta charset="UTF-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link href="base-style.css" rel="stylesheet" />
-				<link href="projects-style.css" rel="stylesheet" />
-				<title>My Portfolio</title>
-		</head>
-		<body>
-				<div class="header"><span>Projects</span><a href="index.html">home</a></div>
-				<div id="main" class="container">
-						<div class="box">
-								<div class="proj-image"><img src="assets/ansible-project-w.png" alt="Backup for Network Appliance Configurations"></div>
-						<h3 class="title">Backup for Network Appliance Configurations</h3>
-						<p class="description">[GOAL]: Use Ansible to automate the backup of various network appliances configurations. </br>[CONTEXT]: The device to backup ranged from various Cisco switches to Dell switches mounting DELL OS 10. The ansible machine needed to be able to authenticate on these machine and execute a backup of the configuration. The credentials had to be safely stored. The interaction with the network appliances was made via API when possible, via ssh otherwise.</p>
-								<div class="technologies">
-										<p>Anslible</p>
-										<p>Python</p>
-										<p>YAML</p>
-								</div>
-						</div>
-						<div class="box">
-								<div class="proj-image"><img src="assets/meraki-notification.png" alt="Meraki Licence and Firmware Notification Automation"></div>
-								<h3 class="title">Meraki Licence and Firmware Notification Automation</h3>
-								<p class="description">[GOAL]: Automatically send emails to various departments depending on data collected via the Cisco Meraki API.</br>[SOLUTION]: Powershell script, and wrote a small Powershell library, to interact with the Cisco Meraki API.</br>[INFRASTRUCTURE]: Deploy the automation in azure, making the solution complitely serverless.</p>
-								<div class="technologies">
-										<p>Azure Automation Accounts</p>
-										<p>Azure KeyVaults</p>
-										<p>Azure Storage Accounts</p>
-										<p>Microsoft Graph API</p>
-										<p>Powershell</p>
-										<p>Meraki Dashboard \& API</p>
-								</div>
-						</div>
-						<div class="box">
-								<div class="proj-image"><img alt="Mail Sentiment Analisys"></div>
-								<h3 class="title">Mail Sentiment Analisys</h3>
-								<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								<div class="technologies">
-										<p>Azure Logic App</p>
-										<p>Azure Language Service</p>
-										<p>Azure Storage Account</p>
-										<p>Azure Automation Account</p>
-								</div>
-						</div >
-						<div class="box">
-								<div class="proj-image"><img alt="Copilot Multiagent RAG"></div>
-								<h3 class="title">Copilot Multiagent RAG</h3>
-								<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								<div class="technologies">
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-								</div>
-						</div>
-						<div class="box">
-								<div class="proj-image"><img alt="Mig Music Generation Dashboard"></div>
-								<h3 class="title">Mig Music Generation Dashboard</h3>
-								<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								<div class="technologies">
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-								</div>
-						</div>
-						<div class="box">
-								<div class="proj-image"><img alt="Bachelor Thesys"></div>
-								<h3 class="title">Bachelor Thesys</h3>
-								<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								<div class="technologies">
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-										<p>Who knows</p>
-								</div>
-						</div>
-				</div>
-				<div class="footer">footer</div>
-		</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="base-style.css" rel="stylesheet" />
+    <link href="projects-style.css" rel="stylesheet" />
+    <title>My Portfolio - Projects</title>
+</head>
+<body>
+    <div class="header"><span>Projects</span><a href="index.html">home</a></div>
+    
+    <div id="main" class="container">
+        <div class="box">
+            <div class="proj-image"><img src="assets/ansible-project-w.png" alt="Network Config Backup"></div>
+            <h3 class="title">Network Appliance Config Backup</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Automate the backup of Cisco and Dell device configurations.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Developed automated workflows using Ansible and Python to execute backups via SSH and APIs.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>Ansible</p><p>Python</p><p>YAML</p><p>SSH</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="proj-image"><img src="assets/meraki-notification.png" alt="Meraki Notifications"></div>
+            <h3 class="title">Meraki License & Firmware Notifications</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Event-driven monitoring for Cisco Meraki firmware and license lifecycles.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Utilized Azure Automation, PowerShell 7, and Meraki APIs for automated reporting.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>Azure Automation</p><p>PowerShell</p><p>Meraki API</p><p>Key Vault</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="proj-image"><img alt="Copilot RAG"></div>
+            <h3 class="title">Multiagent Copilot RAG</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Create a multi-agent chatbot to query enterprise knowledge across SharePoint and VTENext.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Built with Copilot Studio, Azure AI Search, and OpenAI, using Azure Functions for backend logic.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>Copilot Studio</p><p>Azure AI Search</p><p>OpenAI</p><p>Azure Functions</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="proj-image"><img alt="Backup Discovery"></div>
+            <h3 class="title">Backup Discovery Platform</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Aggregate Veeam backup health data into a centralized platform.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Implemented C# .NET worker services and Azure Web Apps with Storage Accounts.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>C# .NET</p><p>Azure Web Apps</p><p>Veeam API</p><p>Azure Storage</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="proj-image"><img alt="Sentiment Analysis"></div>
+            <h3 class="title">Mail Sentiment Analysis</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Automate a sentiment pipeline for customer email feedback.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Integrated Azure AI Language Service with Azure Logic Apps for execution and storage.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>Logic Apps</p><p>Azure AI Language</p><p>Azure Storage</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="proj-image"><img alt="Music Dashboard"></div>
+            <h3 class="title">Mig Music Generation Dashboard</h3>
+            <div class="description">
+                <div class="desc-item">
+                    <span class="label">Goal</span>
+                    <p>Refactor a research Python pipeline into a production-ready application.</p>
+                </div>
+                <div class="desc-item">
+                    <span class="label">Solution</span>
+                    <p>Containerized the app with Docker and implemented GitLab CI/CD for deployment.</p>
+                </div>
+            </div>
+            <div class="technologies">
+                <p>Python</p><p>Docker</p><p>GitLab CI/CD</p><p>Dashboard</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">footer</div>
+</body>
+
+<script>
+    // Hide header and footer specifically when embedded in an iframe
+    if (window.self !== window.top) {
+        const header = document.querySelector('.header');
+        const footer = document.querySelector('.footer');
+        if (header) header.style.display = 'none';
+        if (footer) footer.style.display = 'none';
+        
+        // Reset body grid to take up full space
+        document.body.style.gridTemplateRows = '1fr';
+        document.body.style.height = '100vh';
+    }
+</script>
 </html>
