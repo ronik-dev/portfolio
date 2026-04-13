@@ -5,7 +5,7 @@ body:has(#main:target) .footer {
 
 body:has(#main:target) {
   background-color: var(--bg-color-four);
-  grid-template-rows: 1fr; /* Removes the auto rows for header/footer */
+  grid-template-rows: 1fr;
 }
 
 body:has(#main:target) .main {
@@ -102,7 +102,7 @@ body:has(#main:target) .main {
 .technologies p {
   background-color: var(--accent-color-two);
   border-radius: 5px;
-  padding: 4px 10px;
+  padding: 2px 5px;
   font-size: 0.8rem;
   margin: 0;
 }
