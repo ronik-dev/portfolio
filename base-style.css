@@ -12,7 +12,7 @@
   --text-color-opposite: black;
 }
 
-html.light-theme body {
+html.light-theme {
   --bg-color-one:      #ffffff;
   --bg-color-opposite: #000000;
   --bg-color-two:      #f8fafc;
@@ -24,12 +24,11 @@ html.light-theme body {
   --text-color-opposite: #ffffff;
 }
 
-::selection,
-::-moz-selection {
-  background:  var(--bg-color-opposite);
-  color:       var(--text-color-opposite);
-  text-shadow: none;
-}
+::selection      { background: white; color: black; text-shadow: none; }
+::-moz-selection { background: white; color: black; text-shadow: none; }
+
+html.light-theme ::selection      { background: black; color: white; text-shadow: none; }
+html.light-theme ::-moz-selection { background: black; color: white; text-shadow: none; }
 
 html {
   overscroll-behavior: none;
@@ -81,6 +80,7 @@ a:hover {
   animation: 1s spotlight-pass 100ms ease forwards;
 }
 
+
 header,
 footer {
   background-color: var(--bg-color-three);
@@ -131,6 +131,7 @@ footer span { user-select: none; }
 .theme-toggle-text::before                        { content: "(day)"; }
 .theme-toggle:checked + .theme-toggle-text::before { content: "(night)"; }
 
+
 .link-icon {
   display: none;
   width: 18px;
@@ -139,11 +140,15 @@ footer span { user-select: none; }
   flex-shrink: 0;
 }
 
+
 @media (max-width: 50em) {
+  
+     Here we just make sure horizontal overflow never causes a horizontal scrollbar. */
   body {
     overflow-x: hidden;
   }
 
+  
   .main {
     align-items: flex-start;
   }
@@ -164,6 +169,7 @@ footer span { user-select: none; }
     display: flex;
     align-items: center;
     justify-content: center;
+    
     min-height: 44px;
     min-width: 44px;
   }
