@@ -1,113 +1,155 @@
 .container {
   display: grid;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   padding: 1em;
   gap: 1em;
   grid-template-areas:
     "project project timeline timeline"
     "project project certification myself";
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr); 
+  grid-template-rows: repeat(2, 1fr);
   box-sizing: border-box;
 }
 
-
-
 .box {
   border: 1px solid var(--bg-color-three);
-  background-color: var(--bg-color-four); 
+  background-color: var(--bg-color-four);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:1em;
+  padding: 1em;
 }
 
 .box a {
   display: flex;
   flex-direction: column;
-  overflow:hidden;
+  overflow: hidden;
   color: var(--text-color-one);
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 .box a:hover {
-  background-image: linear-gradient(
-    90deg,
-    black 40%,
-    white ,
-    black 60%
-  );
-} 
+  background-image: linear-gradient(90deg, black 40%, white, black 60%);
+}
 
-.box:hover{
+.box:hover {
   background-color: var(--accent-color-one);
   filter: url(#glitch);
 }
 
-.box-title{
-  width:100%;
-  margin-bottom:1em;
+.box-title {
+  width: 100%;
+  margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
 }
 
-.box-title span:hover{
+.box-title span:hover {
   color: var(--accent-color-two);
 }
 
-.project { grid-area: project; }
-.timeline { grid-area: timeline; }
+.project       { grid-area: project; }
+.timeline      { grid-area: timeline; }
 .certification { grid-area: certification; }
-.myself { grid-area: myself; }
+.myself        { grid-area: myself; }
 
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
-  overflow:auto;
-  pointer-events: none;
-  flex-grow:1;
+.box-center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project iframe{
+.box-preview {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: auto;
+  pointer-events: none;
+  display: block;
+}
+
+.project iframe {
   pointer-events: auto;
 }
 
-.theme-toggle-text{
-  float: right;
+.mobile-preview {
+  display: none;
 }
 
-@media(max-width: 100em){
-  .container{
+.glitch-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 100em) {
+  .container {
     grid-template-areas:
       "project project myself myself"
       "project project certification certification"
       "timeline timeline timeline timeline";
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
   }
-  .box {
-    padding:0.5em;
-  }
+
+  .box { padding: 0.5em; }
 }
 
-@media(max-width: 50em){
-  .container{
+@media (max-width: 50em) {
+  body {
+    overflow: auto;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .container {
     grid-template-areas:
-      "project" 
+      "project"
       "certification"
       "myself"
       "timeline";
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, minmax(300px,auto)); 
-	overflow:auto;
+    grid-template-rows: auto;
+    overflow: visible;
+    height: auto;
+    gap: 0.75em;
+    padding: 0.75em;
   }
+
   .box {
-    padding:0.5em;
+    padding: 1em;
+    height: auto;
+    min-height: 120px;
   }
-  .box span {
-    display:none;
+
+  iframe          { display: none; }
+  .mobile-preview {
+    display: block;
+    margin: 0;
+    padding: 0 0 0 1em;
+    list-style: disc;
+    opacity: 0.75;
+    font-size: 0.85rem;
+    line-height: 1.8;
   }
+
+  .box-title span { display: none; }
+
+  .box:hover { filter: none; }
+
+  .box a { min-height: 44px; }
 }

@@ -3,131 +3,169 @@
 		<head>
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link rel="icon" type="image/png" href="public/favicon.png"/>
-				<script> if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.add('light-theme'); } </script>
-				<link href="base-style.css" rel="stylesheet" />
-				<script src="base.js" defer></script>
-				<link href="index-style.css" rel="stylesheet" />
-				<title>Ronik | Developer Portfolio</title>
+				<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+				<meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)">
+				<meta name="apple-mobile-web-app-capable" content="yes">
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 				<meta name="description" content="Hello world! Welcome to my portfolio, here you can find some of my projects as student at SUPSI and software developer. Feel free to take a look :)">
+
+				<link rel="icon" type="image/png" href="public/favicon.png">
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+				<!-- Theme applied before paint to avoid flash -->
+				<script>
+						(function() {
+								if (localStorage.getItem('theme') === 'light') {
+										document.documentElement.classList.add('light-theme');
+								}
+						})();
+				</script>
+
+				<link href="base-style.css" rel="stylesheet">
+				<link href="index-style.css" rel="stylesheet">
+				<script src="base.js" defer></script>
+
+				<title>Ronik | Developer Portfolio</title>
 		</head>
 		<body>
-				<header role="banner" ><strong>Nicola Romano</strong><input type="checkbox" id="theme-selector" class="theme-toggle"><label class="theme-toggle-text" for="theme-selector"></label></header>
-				<div role="main" class="main">
+				<header role="banner">
+						<strong>Nicola Romano</strong>
+						<input type="checkbox" id="theme-selector" class="theme-toggle" aria-label="Toggle light/dark theme">
+						<label class="theme-toggle-text" for="theme-selector"></label>
+				</header>
+
+				<main class="main">
 						<div class="container">
+
+								<!-- Projects box: on mobile show a static summary instead of iframe -->
 								<div class="box project">
 										<a href="./projects.html">
 												<div class="box-title"><strong>projects</strong><span>[click for more]</span></div>
-												<iframe title="Project showcase page" src="projects.html#main"></iframe>
+												<div class="box-preview" aria-hidden="true">
+														<iframe title="Project showcase page" src="projects.html#main" loading="lazy" tabindex="-1"></iframe>
+														<!-- Mobile fallback — hidden on desktop via CSS -->
+														<ul class="mobile-preview" aria-label="Recent projects">
+																<li>Network Appliance Config Backup</li>
+																<li>Meraki License &amp; Firmware Notifications</li>
+																<li>Mig Music Generation Dashboard</li>
+																<li>NASA Turbofan RUL Predictor</li>
+																<li>Multiagent Copilot RAG</li>
+														</ul>
+												</div>
 										</a>
 								</div>
+
+								<!-- Timeline: static content, no change needed -->
 								<div class="box timeline">
 										<div class="box-title"><strong>timeline</strong></div>
-										<div style="width: 100%;height: 100%;display: flex; align-items: center; justify-content: center;"><p>work in progress...</p></div>
+										<div class="box-center"><p>work in progress...</p></div>
 								</div>
+
+								<!-- Certifications box: on mobile show static summary instead of iframe -->
 								<div class="box certification">
 										<a href="./certifications.html">
 												<div class="box-title"><strong>certifications</strong><span>[click for more]</span></div>
-												<iframe title="Certifications showcase page" scrolling="no" src="certifications.html#main"></iframe>
+												<div class="box-preview" aria-hidden="true">
+														<iframe title="Certifications showcase page" scrolling="no" src="certifications.html#main" loading="lazy" tabindex="-1"></iframe>
+														<!-- Mobile fallback — hidden on desktop via CSS -->
+														<ul class="mobile-preview" aria-label="Certifications">
+																<li>Microsoft Azure AI-900</li>
+																<li>Cambridge B2 English</li>
+																<li>Azure AI-200 <em>(in progress)</em></li>
+														</ul>
+												</div>
 										</a>
 								</div>
+
+								<!-- Myself box -->
 								<div class="box myself">
 										<a href="./myself.html">
 												<div class="box-title"><strong>myself</strong><span>[click for more]</span></div>
-												<div style="width: 100%;height: 100%;display: flex; align-items: center; justify-content: center;"><p>~$ bash nicola.sh</p></div>
+												<div class="box-center"><p>~$ bash nicola.sh</p></div>
 										</a>
 								</div>
-						</div>
-				</div>
 
-				<svg style="position:absolute;width:0;height:0">
+						</div>
+				</main>
+
+				<!--
+						Glitch SVG filter — only injected on non-touch devices.
+						On mobile this saves ~0 bytes of parse but eliminates the
+						continuous animation work done by the SVG animate elements.
+				-->
+				<svg class="glitch-defs" aria-hidden="true" focusable="false">
 						<defs>
 						<filter id="glitch" x="-10%" width="120%" y="0%" height="100%">
-
-						<!-- Turbulence: 0 x-freq = same shift across a row, 0.3 y-freq = different shift per row -->
 						<feTurbulence type="fractalNoise" baseFrequency="0 0.3" numOctaves="1" seed="2" result="rawNoise">
 						<animate attributeName="seed"
 								 values="2;2;2;2;5;2;2;2;2;2;8;2;2;3;2;2;2;2;2;2"
 								 dur="2.0s" repeatCount="indefinite" calcMode="discrete"/>
 						</feTurbulence>
-
-						<!-- Pin G channel to 0.5 (neutral) so Y displacement is always zero -->
 						<feColorMatrix in="rawNoise" type="matrix"
-													 values="1 0 0 0 0
-															 0 0 0 0 0.5
-															 0 0 1 0 0
-															 0 0 0 1 0" result="noise"/>
-
+													 values="1 0 0 0 0  0 0 0 0 0.5  0 0 1 0 0  0 0 0 1 0" result="noise"/>
 						<feComponentTransfer in="SourceGraphic" result="red">
-						<feFuncR type="identity" />
-						<feFuncG type="discrete" tableValues="0"/>
-						<feFuncB type="discrete" tableValues="0"/>
-						<feFuncA type="identity" />
+						<feFuncR type="identity"/><feFuncG type="discrete" tableValues="0"/>
+						<feFuncB type="discrete" tableValues="0"/><feFuncA type="identity"/>
 						</feComponentTransfer>
-
 						<feComponentTransfer in="SourceGraphic" result="green">
-						<feFuncR type="discrete" tableValues="0"/>
-						<feFuncG type="identity" />
-						<feFuncB type="discrete" tableValues="0"/>
-						<feFuncA type="identity" />
+						<feFuncR type="discrete" tableValues="0"/><feFuncG type="identity"/>
+						<feFuncB type="discrete" tableValues="0"/><feFuncA type="identity"/>
 						</feComponentTransfer>
-
 						<feComponentTransfer in="SourceGraphic" result="blue">
-						<feFuncR type="discrete" tableValues="0"/>
-						<feFuncG type="discrete" tableValues="0"/>
-						<feFuncB type="identity" />
-						<feFuncA type="identity" />
+						<feFuncR type="discrete" tableValues="0"/><feFuncG type="discrete" tableValues="0"/>
+						<feFuncB type="identity"/><feFuncA type="identity"/>
 						</feComponentTransfer>
-
-						<!-- Each channel displaced by a different amount for chromatic aberration -->
 						<feDisplacementMap in="red" in2="noise" xChannelSelector="R" yChannelSelector="G" result="red-shifted">
 						<animate attributeName="scale"
 								 values="0;0;0;0;35;0;0;0;0;0;-25;0;0;30;0;0;0;0;0;0"
 								 dur="2.0s" repeatCount="indefinite" calcMode="discrete"/>
 						</feDisplacementMap>
-
 						<feDisplacementMap in="green" in2="noise" xChannelSelector="R" yChannelSelector="G" result="green-shifted">
 						<animate attributeName="scale"
 								 values="0;0;0;0;-15;0;0;0;0;0;12;0;0;-14;0;0;0;0;0;0"
 								 dur="2.0s" repeatCount="indefinite" calcMode="discrete"/>
 						</feDisplacementMap>
-
 						<feDisplacementMap in="blue" in2="noise" xChannelSelector="R" yChannelSelector="G" result="blue-shifted">
 						<animate attributeName="scale"
 								 values="0;0;0;0;22;0;0;0;0;0;-35;0;0;18;0;0;0;0;0;0"
 								 dur="2.0s" repeatCount="indefinite" calcMode="discrete"/>
 						</feDisplacementMap>
-
-						<feBlend in="red-shifted"  in2="green-shifted" result="rg"    mode="screen" />
-						<feBlend in="rg"           in2="blue-shifted"  result="final" mode="screen" />
-
+						<feBlend in="red-shifted" in2="green-shifted" result="rg" mode="screen"/>
+						<feBlend in="rg" in2="blue-shifted" result="final" mode="screen"/>
 						</filter>
 						</defs>
 				</svg>
 
-				<footer role="contacts">
+				<footer role="contentinfo">
 						<strong>contact me at:</strong>
 						<a href="mailto:info@ronik.ch">
 								<span class="link-text"><span class="no-select">[</span>info@ronik.ch<span class="no-select">]</span></span>
-								<svg class="link-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+								<svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
 						</a>
 						<a href="https://www.github.com/ronik-dev">
 								<span class="link-text"><span class="no-select">[</span>github.com/ronik-dev<span class="no-select">]</span></span>
-								<svg class="link-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+								<svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
 						</a>
 						<a href="https://www.linkedin.com/in/nicola-romano-351461385">
 								<span class="link-text"><span class="no-select">[</span><span class="link-prefix">linkedin.com/in/</span>nicola-romano-351461385<span class="no-select">]</span></span>
-								<svg class="link-icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+								<svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
 						</a>
 				</footer>
-		</body>
 
-		<script>
-				// link to projects
-				window.addEventListener('message', (event) => {
-						if (event.data === 'triggerLink') {
-								window.location.href = './projects.html'; 
+				<script>
+						// Disable glitch SVG animations on touch/mobile to save battery & GPU
+						if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+								const glitchDefs = document.querySelector('.glitch-defs');
+								if (glitchDefs) glitchDefs.remove();
 						}
-				});
-		</script>
+
+						// Link to projects page when iframe is clicked
+						window.addEventListener('message', (event) => {
+								if (event.data === 'triggerLink') {
+										window.location.href = './projects.html';
+								}
+						});
+				</script>
+		</body>
 </html>
