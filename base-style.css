@@ -112,10 +112,6 @@ footer strong { margin-right: 30px; }
   user-select: none;
 }
 
-footer span { user-select: none; }
-
-.link-prefix { user-select: text; }
-
 .main {
   display: flex;
   width: 100%;
