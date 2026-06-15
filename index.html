@@ -13,7 +13,6 @@
 				<link rel="preconnect" href="https://fonts.googleapis.com">
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-				<!-- Theme applied before paint to avoid flash -->
 				<script>
 						(function() {
 								if (localStorage.getItem('theme') === 'light') {
@@ -38,13 +37,11 @@
 				<main class="main">
 						<div class="container">
 
-								<!-- Projects box: on mobile show a static summary instead of iframe -->
 								<div class="box project">
 										<a href="./projects.html">
 												<div class="box-title"><strong>projects</strong><span>[click for more]</span></div>
 												<div class="box-preview" aria-hidden="true">
 														<iframe title="Project showcase page" src="projects.html#main" loading="lazy" tabindex="-1"></iframe>
-														<!-- Mobile fallback — hidden on desktop via CSS -->
 														<ul class="mobile-preview" aria-label="Recent projects">
 																<li>Network Appliance Config Backup</li>
 																<li>Meraki License &amp; Firmware Notifications</li>
@@ -56,19 +53,16 @@
 										</a>
 								</div>
 
-								<!-- Timeline: static content, no change needed -->
-								<div class="box timeline">
-										<div class="box-title"><strong>timeline</strong></div>
+								<div class="box api">
+										<div class="box-title"><strong>api</strong></div>
 										<div class="box-center"><p>work in progress...</p></div>
 								</div>
 
-								<!-- Certifications box: on mobile show static summary instead of iframe -->
 								<div class="box certification">
 										<a href="./certifications.html">
 												<div class="box-title"><strong>certifications</strong><span>[click for more]</span></div>
 												<div class="box-preview" aria-hidden="true">
 														<iframe title="Certifications showcase page" scrolling="no" src="certifications.html#main" loading="lazy" tabindex="-1"></iframe>
-														<!-- Mobile fallback — hidden on desktop via CSS -->
 														<ul class="mobile-preview" aria-label="Certifications">
 																<li>Microsoft Azure AI-900</li>
 																<li>Cambridge B2 English</li>
@@ -78,7 +72,6 @@
 										</a>
 								</div>
 
-								<!-- Myself box -->
 								<div class="box myself">
 										<a href="./myself.html">
 												<div class="box-title"><strong>myself</strong><span>[click for more]</span></div>
@@ -89,11 +82,6 @@
 						</div>
 				</main>
 
-				<!--
-						Glitch SVG filter — only injected on non-touch devices.
-						On mobile this saves ~0 bytes of parse but eliminates the
-						continuous animation work done by the SVG animate elements.
-				-->
 				<svg class="glitch-defs" aria-hidden="true" focusable="false">
 						<defs>
 						<filter id="glitch" x="-10%" width="120%" y="0%" height="100%">

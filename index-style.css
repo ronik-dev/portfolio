@@ -5,7 +5,7 @@
   padding: 1em;
   gap: 1em;
   grid-template-areas:
-    "project project timeline timeline"
+    "project project api api"
     "project project certification myself";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -51,7 +51,7 @@
 }
 
 .project       { grid-area: project; }
-.timeline      { grid-area: timeline; }
+.api 		   { grid-area: api; }
 .certification { grid-area: certification; }
 .myself        { grid-area: myself; }
 
@@ -101,7 +101,7 @@ iframe {
     grid-template-areas:
       "project project myself myself"
       "project project certification certification"
-      "timeline timeline timeline timeline";
+      "api api api api";
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
@@ -121,7 +121,7 @@ iframe {
       "project"
       "certification"
       "myself"
-      "timeline";
+      "api";
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     overflow: visible;

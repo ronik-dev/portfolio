@@ -1,9 +1,10 @@
 .container {
-  padding: 3em 2em;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 5em;
   display: flex;
   flex-direction: column;
   gap: 2.5em;
-  max-width: 900px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -89,7 +90,7 @@
 .hobby-card::before {
   content: "drwxr-xr-x";
   grid-area: perms;
-  color: var(--accent-color-one);
+  color: var(--accent-color-three);
   opacity: 0.45;
   font-size: 0.78rem;
   user-select: none;
@@ -128,9 +129,12 @@
   overflow: hidden;          
 }
 
+
 @media (max-width: 50em) {
+
   .container {
-    padding: 2em 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .hobby-card::before {
