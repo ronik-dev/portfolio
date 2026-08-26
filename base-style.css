@@ -88,9 +88,14 @@ footer {
   padding: 1em;
   width: 100%;
   box-sizing: border-box;
+  z-index: 10;
 }
 
-header { display: block; }
+header { 
+  display: block; 
+  position: sticky;
+  top: 0;
+}
 header a { float: right; }
 
 footer {
@@ -154,7 +159,6 @@ footer strong { margin-right: 30px; }
     gap: 1.5em;
     position: sticky;
     bottom: 0;
-    z-index: 10;
   }
 
   footer strong { display: none; }
@@ -166,7 +170,7 @@ footer strong { margin-right: 30px; }
     align-items: center;
     justify-content: center;
     
-    min-height: 44px;
+    min-height: 22px;
     min-width: 44px;
   }
 
@@ -174,7 +178,7 @@ footer strong { margin-right: 30px; }
 
   .link-icon {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 24px;
   }
 }

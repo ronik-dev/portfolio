@@ -17,9 +17,6 @@ function broadcastThemeToFrames(theme) {
 }
 
 // ── Initial application (runs on every fresh page load) ───────────────────────
-// This replaces the inline <script> in each page's <head> so there is one
-// single source of truth. base.js is loaded with `defer`, so the HTML is
-// already parsed and classList.add works synchronously here.
 applyTheme(localStorage.getItem('theme') ?? 'dark');
 
 // ── Toggle (index.html only) ──────────────────────────────────────────────────

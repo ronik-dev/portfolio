@@ -4,7 +4,7 @@ body:has(#main:target) footer {
 }
 
 body:has(#main:target) {
-  background-color: var(--bg-color-four);
+  /*background-color: var(--bg-color-four);*/
   grid-template-rows: 1fr;
   overflow:hidden;
 }
@@ -31,7 +31,7 @@ body:has(#main:target) .main {
   grid-auto-rows: auto;
   gap: 2em;
   box-sizing: border-box;
-  background-color: var(--bg-color-four);
+  /*background-color: var(--bg-color-four);*/
   padding: 2em 1em;
   overflow-y: auto;
 }

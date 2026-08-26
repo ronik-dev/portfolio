@@ -19,10 +19,10 @@ body:has(#main:target) .container{
 
 /* Make the body background match the box color */
 body:has(#main:target) {
-  background-color: var(--bg-color-four); 
+  /*background-color: var(--bg-color-four);*/
 }
 body{
-  background-color: var(--bg-color-four);
+  /*background-color: var(--bg-color-four);*/
 }
 .grid{
   width: 100%;
