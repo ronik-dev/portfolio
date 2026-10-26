@@ -132,8 +132,7 @@ iframe {
 
   .box {
     padding: 1em;
-    height: auto;
-    min-height: 120px;
+    height: 200px;
   }
 
   iframe { display: none; }
