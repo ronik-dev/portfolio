@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.add('light-theme'); } </script>
+        <link href="base-style.css" rel="stylesheet" />
+        <script src="base.js" defer></script>
+        <link href="certifications-style.css" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="public/favicon.png">
+        <title>IT & Cloud Certifications Badges| Ronik Developer Portfolio</title>
+        <meta name="description" content="My certification badges on a carousel :)">
+    </head>
+    <body>
+        <div id="main" class="container">
+            <div id="carousel" class="carousel">
+                <div class="carousel-face">
+                    <img src="public/microsoft-certified-fundamentals-badge.svg" alt="Microsoft -- AI 900">
+                </div>
+                <div class="carousel-face">
+                    <img src="public/cambridge-b2.svg" alt="Cambridge -- B2 English Certificate">
+                </div>
+                <div class="carousel-face">
+                    <img src="public/microsoft-certified-associate-badge.svg" style="filter:grayscale(1)" alt="Microsoft -- AI 200">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // TO ROTATE THE CERTIFICATIONS
+            const carousel = document.querySelector('.carousel');
+            const faces = document.querySelectorAll('.carousel-face');
+            const imgs = document.querySelectorAll('.carousel-face img');
+            const n = faces.length;
+            const duration = n * 4000; // 4 seconds per face
+
+            // position faces evenly and set the radius automatically
+            const angleStep = 360 / n;
+            const radius = 42 + Math.round((300 / 2) / Math.tan(Math.PI / n));
+
+            faces.forEach((face, i) => {
+                const offset = i * angleStep;
+                face.style.transform = `rotateY(${offset}deg) translateZ(${radius}px)`;
+            });
+
+            const startTime = Date.now();
+
+            function tick() {
+                const angle = (((Date.now() - startTime) % duration) / duration) * 360;
+                carousel.style.transform = `rotateY(${-angle}deg)`;
+                imgs.forEach((img, i) => {
+                    img.style.transform = `rotateY(${angle - i * angleStep}deg)`;
+                });
+                requestAnimationFrame(tick);
+            }
+
+            requestAnimationFrame(tick);
+
+            // to resize when embedded as iframe	
+            if (window.self !== window.top) {
+                const header = document.querySelector('header');
+                const footer = document.querySelector('footer');
+                if (header) header.style.display = 'none';
+                if (footer) footer.style.display = 'none';
+                document.body.style.minHeight = 'unset'; 
+                document.body.style.display = 'block';
+            }
+        </script>
+    </body>
+</html>

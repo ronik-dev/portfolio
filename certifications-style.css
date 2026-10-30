@@ -7,9 +7,6 @@ body:has(#main:target) .descriptions {
 }
 
 body:has(#main:target) .grid {
-  grid-template-areas: "carousel";
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   height: 100%;
 }
 
@@ -30,13 +27,9 @@ body{
   margin:0;
   padding:0;
   display: grid;
-  grid-template-areas:
-    "carousel descriptions";
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .descriptions{
-  grid-area: descriptions;
   display:flex;
   flex-direction:column;
   justify-content: safe center;
@@ -55,7 +48,6 @@ body{
 }
 
 .container {
-  grid-area: carousel;
   width: 100%;
   height: auto;
   display: flex;
@@ -148,23 +140,11 @@ body{
 }
 
 @media(max-width: 100em){
-  .grid{
-    grid-template-areas:
-      "carousel descriptions";
-    grid-template-columns: repeat(2, 1fr);
-  }
   .descriptions{
     padding:1em;		
   }
 }
 @media(max-width: 50em){
-  .grid{
-    grid-template-areas:
-      "carousel"
-      "descriptions";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr, auto;
-  }
   .container{
     height: 30vh;
   }
