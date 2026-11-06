@@ -34,7 +34,15 @@ body{
   flex-direction:column;
   justify-content: safe center;
   overflow-y: auto;
-  padding:5em;
+  padding: 2em 1em;
+  box-sizing: border-box;
+}
+
+@media (min-width: 90em) {
+  .descriptions {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
 }
 
 .cert-desc{
