@@ -1,164 +1,131 @@
 .container {
-  padding: 2em 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5em;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2em 1em;
+    box-sizing: border-box;
 }
 
 @media (min-width: 90em) {
-  .container {
-    padding-left: 15%;
-    padding-right: 15%;
-  }
+    .container {
+        padding-inline: 15%;
+    }
 }
 
 .prompt-line,
 .section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5em;
-  font-size: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
 }
 
 .prompt {
-  color: var(--accent-color-one);
-  user-select: none;
+    color: var(--accent-color-one);
+    user-select: none;
 }
 
-.cmd  { color: var(--text-color-one); }
-
-.arg  {
-  color: var(--accent-color-one);
-  opacity: 0.7;
+.cmd {
+    color: var(--text-color-one);
 }
+
+.arg {
+    color: var(--accent-color-one);
+    opacity: 0.7;
+}
+
+/* Sections */
 
 .bio {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
 }
 
+/* Shared output layout */
+
+.bio-output,
+.hobbies {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5em;
+    border-left: 2px solid var(--bg-color-two);
+}
+
+/* Bio entries */
+
 .bio-output {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3em;
-  padding-left: 1.5em;
-  border-left: 2px solid var(--bg-color-two);
+    gap: 0.3em;
 }
 
 .bio-output p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+    margin: 0;
+    line-height: 1.6;
 }
 
-.bio-output .key { color: var(--accent-color-one); }
+.bio-output .key,
+.hobby-icon {
+    color: var(--accent-color-one);
+}
 
 .bio-output .sep {
-  color: var(--bg-color-opposite);
-  opacity: 0.3;
-  margin: 0 0.4em;
-  user-select: none;
+    margin-inline: 0.4em;
+    color: var(--bg-color-opposite);
+    opacity: 0.3;
+    user-select: none;
 }
 
 .bio-output em {
-  font-style: normal;
-  opacity: 0.6;
-  font-size: 0.9em;
+    opacity: 0.6;
 }
 
+/* Hobby entries */
 
 .hobbies {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-left: 2px solid var(--bg-color-two);
-  padding-left: 1.5em;
+    gap: 0;
 }
 
 .hobby-card {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-template-areas:
-    "perms icon title"
-    ".     .    desc";
-  column-gap: 1em;
-  align-items: baseline;
-  padding: 0.25em 0.5em;
-  transition: background-color 0.15s ease, grid-template-rows 0.25s ease;
-  cursor: default;
-}
-
-.hobby-card::before {
-  content: "drwxr-xr-x";
-  grid-area: perms;
-  color: var(--accent-color-three);
-  opacity: 0.45;
-  font-size: 0.78rem;
-  user-select: none;
-  white-space: nowrap;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+        "icon title"
+        ".    desc";
+    column-gap: 1em;
+    padding: 0.25em 0.5em;
 }
 
 .hobby-icon {
-  grid-area: icon;
-  color: var(--accent-color-one);
-  font-size: 0.85rem;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.hobby-body {
-  grid-area: title;          
-  display: contents;         
+    grid-area: icon;
+    white-space: nowrap;
+    user-select: none;
 }
 
 .hobby-title {
-  grid-area: title;
-  font-size: 0.95rem;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    grid-area: title;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.hobby-body p {
-  grid-area: desc;
-  margin: 0;
-  padding: 0.4em 0 0.3em;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  opacity: 0.75;
-  overflow: hidden;          
+.hobby-body {
+    grid-area: desc;
+    margin: 0;
+    padding: 0.4em 0 0.3em;
+    opacity: 0.75;
 }
 
-
-@media (max-width: 50em) {
-
-  .hobby-card::before {
-    display: none;
-  }
-
-  .hobby-card {
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "icon title"
-      ".    desc";
-  }
-
-  .hobby-card {
-    grid-template-rows: auto 1fr;
-  }
-
-  .hobby-body p {
-    opacity: 0.65;
-  }
-}
+/* Small screens */
 
 @media (max-width: 30em) {
-  .container   { padding: 1.5em 1em; }
-  .bio-output  { padding-left: 0.8em; }
-  .hobbies     { padding-left: 0.8em; }
+    .container {
+        padding: 1.5em 1em;
+    }
+
+    .bio-output,
+    .hobbies {
+        padding-left: 0.8em;
+    }
 }
